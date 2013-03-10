@@ -12,7 +12,11 @@
                         ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
-
+        <style type="text/css">
+        body{
+            background: #fff url(img/grid.png);
+        }
+        </style>
         <!-- Scripts -->
         <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
                                       ->prependFile($this->basePath() . '/js/bootstrap.min.js')
@@ -20,28 +24,27 @@
 
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="">
             <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo ('Skeleton Application') ?></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo ('Home') ?></a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
+                <div class="container" style="max-width:800px; padding:10px 15px;">
+                    <a class="brand" href="#">Sosiometri</a>
+                    <ul class="nav pull-right">
+                        <li class="active">
+                            <form class="form-inline navbar-search pull-left">
+                            <input type="text" class="input-small" placeholder="Username">
+                            <input type="password" class="input-small" placeholder="Password">
+                            <button type="submit" class="btn btn-primary" style="margin-top:-1px;width:90px;">Login</button>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container img-rounded" style="max-width:800px;background:#fff; padding:15px;-webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 1);box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 1);">
             <?php echo $this->content; ?>
             <hr>
-            <footer>
-                <p style="font-size:10px;">&copy; 2010 - <?php echo date('Y') ?> Sandwhich Multimedia</p>
+            <footer class="pull-right">
+                <p style="font-size:11px;">&copy; 2010 - <?php echo date('Y') ?> Sandwhich Multimedia</p>
             </footer>
         </div> <!-- /container -->
         <?php echo $this->inlineScript() ?>
